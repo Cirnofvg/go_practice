@@ -1,0 +1,1 @@
+Simple implementation of Double linked list in go

@@ -1,0 +1,1 @@
+Simple implementation of queue based on stack on go
