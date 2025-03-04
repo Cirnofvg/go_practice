@@ -78,9 +78,62 @@ func (dl *DLList) PushFront(val any) *ListNode {
 	return dl.head
 }
 
-func (dl *DLList) Delete(val any) *ListNode {
-	if dl.Size == 0 || dl.Size == 1 {
+func (dl *DLList) PopFront() *ListNode {
+	if dl.Size == 0 {
 		return nil
+	}
+	if dl.Size == 1 {
+		dl.Size--
+		toDelete := dl.head
+		dl.head, dl.tail = nil, nil
+
+		return toDelete
+	}
+
+	toDelete := dl.head
+
+	dl.head = dl.head.next
+	dl.head.prev = nil
+
+	dl.Size--
+
+	return toDelete
+}
+
+func (dl *DLList) PopBack() *ListNode {
+	if dl.Size == 0 {
+		return nil
+	}
+	if dl.Size == 1 {
+		dl.Size--
+		toDelete := dl.head
+		dl.head, dl.tail = nil, nil
+
+		return toDelete
+	}
+
+	toDelete := dl.tail
+
+	dl.tail = dl.tail.prev
+	dl.tail.next = nil
+
+	dl.Size--
+
+	return toDelete
+}
+
+// Delete - delete node by value
+// return deleted node
+func (dl *DLList) Delete(val any) *ListNode {
+	if dl.Size == 0 {
+		return nil
+	}
+	if dl.Size == 1 {
+		dl.Size--
+		toDelete := dl.head
+		dl.head, dl.tail = nil, nil
+
+		return toDelete
 	}
 
 	tmp := dl.head
@@ -109,6 +162,8 @@ func (dl *DLList) Delete(val any) *ListNode {
 	return nil
 }
 
+// Remove - remove node
+// return removed node
 func (dl *DLList) Remove(node *ListNode) *ListNode {
 	tmp := node
 	if tmp.prev != nil && tmp.next != nil {
