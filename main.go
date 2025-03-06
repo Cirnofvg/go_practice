@@ -1,16 +1,14 @@
 package main
 
 import (
-	"container/list"
 	"fmt"
+	"practice/list"
 	qu "practice/queue_from_stack"
 	"practice/stack"
 
 	"practice/dllist"
 
 	"practice/lru"
-
-	wp "practice/workers_pool"
 )
 
 func doSmthWithDllist() {
@@ -58,12 +56,26 @@ func doSmthWithList() {
 	l := list.New()
 
 	l.PushBack(10)
-	l.PushFront(11)
 
+	fmt.Println(l.Front().Value, l.Back().Value)
+
+	l.PushFront(11)
+	fmt.Println(l.Front().Value, l.Back().Value)
+
+	l.PushFront(13)
+	fmt.Println(l.Front().Value, l.Back().Value)
+
+	l.PushBack(15)
+	fmt.Println(l.Front().Value, l.Back().Value)
+
+	l.PopBack()
+	fmt.Println(l.Front().Value, l.Back().Value)
 }
 
 func main() {
-	wp.DoPrint(5)
+	doSmthWithList()
+
+	// wp.DoPrint(5)
 
 	// doSmthWithLRU()
 
