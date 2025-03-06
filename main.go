@@ -9,6 +9,8 @@ import (
 	"practice/dllist"
 
 	"practice/lru"
+
+	wp "practice/workers_pool"
 )
 
 func doSmthWithDllist() {
@@ -61,7 +63,9 @@ func doSmthWithList() {
 }
 
 func main() {
-	doSmthWithLRU()
+	wp.DoPrint(5)
+
+	// doSmthWithLRU()
 
 	// doSmthWithDllist()
 
