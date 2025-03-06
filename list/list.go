@@ -27,7 +27,23 @@ func (l *List) Back() *ListNode {
 	return l.tail
 }
 
+func (l *List) initList(val any) *ListNode {
+	newNode := &ListNode{
+		Value: val,
+		next:  nil,
+	}
+	l.head = newNode
+	l.tail = newNode
+
+	l.len++
+
+	return l.head
+}
+
 func (l *List) PushBack(val any) *ListNode {
+	if l.len == 0 {
+
+	}
 	newNode := &ListNode{
 		Value: val,
 		next:  nil,
@@ -35,6 +51,8 @@ func (l *List) PushBack(val any) *ListNode {
 
 	l.tail.next = newNode
 	l.tail = newNode
+
+	l.len++
 
 	return l.tail
 }

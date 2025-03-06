@@ -57,19 +57,19 @@ func doSmthWithList() {
 
 	l.PushBack(10)
 
-	fmt.Println(l.Front().Value, l.Back().Value)
+	// fmt.Println(l.Front().Value, l.Back().Value)
 
-	l.PushFront(11)
-	fmt.Println(l.Front().Value, l.Back().Value)
+	// l.PushFront(11)
+	// fmt.Println(l.Front().Value, l.Back().Value)
 
-	l.PushFront(13)
-	fmt.Println(l.Front().Value, l.Back().Value)
+	// l.PushFront(13)
+	// fmt.Println(l.Front().Value, l.Back().Value)
 
-	l.PushBack(15)
-	fmt.Println(l.Front().Value, l.Back().Value)
+	// l.PushBack(15)
+	// fmt.Println(l.Front().Value, l.Back().Value)
 
-	l.PopBack()
-	fmt.Println(l.Front().Value, l.Back().Value)
+	// l.PopBack()
+	// fmt.Println(l.Front().Value, l.Back().Value)
 }
 
 func main() {
