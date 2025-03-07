@@ -212,3 +212,13 @@ func (dl *DLList) Front() *ListNode {
 func (dl *DLList) Back() *ListNode {
 	return dl.tail
 }
+
+func (dl *DLList) ListToSlice() []any {
+	res := make([]any, 0, dl.Size)
+
+	for e := dl.head; e != nil; e = e.next {
+		res = append(res, e.Value)
+	}
+
+	return res
+}

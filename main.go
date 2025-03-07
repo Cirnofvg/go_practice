@@ -37,7 +37,7 @@ func doSmthWithDllist() {
 	// 	fmt.Println(e.Value)
 	// }
 
-	fmt.Println()
+	fmt.Println(l.ListToSlice())
 }
 
 func doSmthWithLRU() {
@@ -93,13 +93,13 @@ func doSmthWithList() {
 }
 
 func main() {
-	doSmthWithList()
+	// doSmthWithList()
 
 	// wp.DoPrint(5)
 
 	// doSmthWithLRU()
 
-	// doSmthWithDllist()
+	doSmthWithDllist()
 
 	// fibonacci.Fibonacci(10)
 
