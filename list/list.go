@@ -1,5 +1,7 @@
 package list
 
+import "fmt"
+
 type List struct {
 	head, tail *ListNode
 
@@ -42,7 +44,7 @@ func (l *List) initList(val any) *ListNode {
 
 func (l *List) PushBack(val any) *ListNode {
 	if l.len == 0 {
-
+		return l.initList(val)
 	}
 	newNode := &ListNode{
 		Value: val,
@@ -65,6 +67,8 @@ func (l *List) PushFront(val any) *ListNode {
 
 	l.head = newNode
 
+	l.len++
+
 	return l.head
 }
 
@@ -80,11 +84,13 @@ func (l *List) PopBack() *ListNode {
 
 	tmp := l.head
 	for ; tmp.next.next != nil; tmp = tmp.next {
-
 	}
 
 	toDelete := tmp.next
 	tmp.next = nil
+
+	l.tail = tmp
+
 	l.len--
 
 	return toDelete
@@ -107,4 +113,10 @@ func (l *List) PopFront() *ListNode {
 	toDelete.next = nil
 
 	return toDelete
+}
+
+func (l *List) PrintList() {
+	for e := l.head; e != nil; e = e.next {
+		fmt.Println(e.Value)
+	}
 }
