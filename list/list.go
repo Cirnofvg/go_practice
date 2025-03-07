@@ -58,6 +58,9 @@ func (l *List) PushBack(val any) *ListNode {
 }
 
 func (l *List) PushFront(val any) *ListNode {
+	if l.len == 0 {
+		return l.initList(val)
+	}
 	newNode := &ListNode{
 		Value: val,
 		next:  l.head,
@@ -75,9 +78,11 @@ func (l *List) PopBack() *ListNode {
 		return nil
 	}
 	if l.len == 1 {
+		toDelete := l.head
+
 		l.len--
 		l.head, l.tail = nil, nil
-		return nil
+		return toDelete
 	}
 
 	tmp := l.head
@@ -99,9 +104,11 @@ func (l *List) PopFront() *ListNode {
 		return nil
 	}
 	if l.len == 1 {
+		toDelete := l.head
+
 		l.len--
 		l.head, l.tail = nil, nil
-		return nil
+		return toDelete
 	}
 
 	toDelete := l.head

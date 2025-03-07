@@ -1,7 +1,8 @@
-package stack_test
+package stack
 
 import (
-	"practice/stack"
+	// "practice/stack"
+	"fmt"
 	"testing"
 )
 
@@ -9,7 +10,7 @@ func TestStack(t *testing.T) {
 	{
 		const op = "test.stack.IsEmpty1"
 
-		s := stack.New([]any{1, 2, 3, 4})
+		s := New([]any{1, 2, 3, 4})
 
 		if s.IsEmpty() == true {
 			t.Errorf("Test failed in %s", op)
@@ -18,7 +19,7 @@ func TestStack(t *testing.T) {
 	{
 		const op = "test.stack.IsEmpty2"
 
-		var s stack.Stack
+		var s Stack
 
 		if s.IsEmpty() != true {
 			t.Errorf("Test failed in %s", op)
@@ -27,7 +28,7 @@ func TestStack(t *testing.T) {
 	{
 		const op = "test.stack.Peek1"
 
-		s := stack.New([]any{1, 2, 3, 4})
+		s := New([]any{1, 2, 3, 4})
 
 		if s.Peek() != 4 {
 			t.Errorf("Test failed in %s", op)
@@ -36,7 +37,7 @@ func TestStack(t *testing.T) {
 	{
 		const op = "test.stack.Peek2"
 
-		var s stack.Stack
+		var s Stack
 
 		if s.Peek() != nil {
 			t.Errorf("Test failed in %s", op)
@@ -45,7 +46,7 @@ func TestStack(t *testing.T) {
 	{
 		const op = "test.stack.PopPeek1"
 
-		s := stack.New([]any{1, 2, 3, 4})
+		s := New([]any{1, 2, 3, 4})
 
 		if p := s.Peek(); s.Pop() != p {
 			t.Errorf("Test failed in %s", op)
@@ -58,7 +59,7 @@ func TestStack(t *testing.T) {
 	{
 		const op = "test.stack.PopPeek2"
 
-		var s stack.Stack
+		var s Stack
 
 		if s.Pop() != nil {
 			t.Errorf("Test failed in %s", op)
@@ -71,7 +72,7 @@ func TestStack(t *testing.T) {
 	{
 		const op = "test.stack.Push1"
 
-		var s stack.Stack
+		var s Stack
 
 		s.Push(5)
 
@@ -88,7 +89,7 @@ func TestStack(t *testing.T) {
 	{
 		const op = "test.stack.Init1"
 
-		var s stack.Stack
+		var s Stack
 
 		if s.Peek() != nil {
 			t.Errorf("Test failed in %s", op)
@@ -97,8 +98,8 @@ func TestStack(t *testing.T) {
 	{
 		const op = "test.stack.Init2"
 
-		s := stack.New([]int{1, 2, 3})
-
+		s := New([]any{1, 2, 3})
+		fmt.Println(s.Peek())
 		if s.Peek() != 3 {
 			t.Errorf("Test failed in %s", op)
 		}

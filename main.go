@@ -54,10 +54,14 @@ func doSmthWithLRU() {
 
 func doSmthWithList() {
 	l := list.New()
-
 	l.PushBack(10)
+	l.PopBack()
+	fmt.Println(l.Front(), l.Back()) // nil.Back()
+	// l.Front()
 
-	fmt.Println(l.Front().Value, l.Back().Value)
+	// fmt.Println(l.PopBack())
+
+	// fmt.Println(l.Front().Value, l.Back().Value)
 
 	l.PushFront(11)
 	fmt.Println(l.Front().Value, l.Back().Value)
@@ -92,41 +96,46 @@ func doSmthWithList() {
 
 }
 
+func doSmthWithStack() {
+	var s stack.Stack
+
+	values := []any{"aboba", "danil", "artyom"}
+
+	s = stack.New(values)
+	fmt.Println(s.Peek())
+
+	s.Push(1)
+	s.Push(true)
+	s.Push("aboba")
+	s.Push(2)
+
+	fmt.Println(s.Peek())
+	s.Pop()
+	fmt.Println(s.Peek())
+	s.Pop()
+	fmt.Println(s.Peek())
+	s.Pop()
+	fmt.Println(s.Peek())
+	s.Pop()
+	fmt.Println(s.Peek())
+	s.Pop()
+	fmt.Println(s.Peek())
+	s.Pop()
+	fmt.Println(s.Peek())
+}
+
 func main() {
+	doSmthWithStack()
+
 	// doSmthWithList()
 
 	// wp.DoPrint(5)
 
 	// doSmthWithLRU()
 
-	doSmthWithDllist()
+	// doSmthWithDllist()
 
 	// fibonacci.Fibonacci(10)
-
-	var s stack.Stack
-
-	// values := []any{"loh", "danil", "artyom"}
-
-	s = stack.New("values")
-
-	s.Push(1)
-	s.Push(true)
-	s.Push("loh")
-	s.Push(2)
-
-	// fmt.Println(s.Peek())
-	// s.Pop()
-	// fmt.Println(s.Peek())
-	// s.Pop()
-	// fmt.Println(s.Peek())
-	// s.Pop()
-	// fmt.Println(s.Peek())
-	// s.Pop()
-	// fmt.Println(s.Peek())
-	// s.Pop()
-	// fmt.Println(s.Peek())
-	// s.Pop()
-	// fmt.Println(s.Peek())
 
 	var queue qu.QueueFromStack
 	queue.Push(1)
