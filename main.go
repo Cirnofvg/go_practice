@@ -68,12 +68,27 @@ func doSmthWithList() {
 	l.PushBack(15)
 	fmt.Println(l.Front().Value, l.Back().Value)
 
-	l.PrintList()
+	// l.PrintList()
 
-	l.PopBack()
+	// fmt.Println(l.Front().Value, l.Back().Value)
+
+	fmt.Println(l.ListToSlice())
+
+	l.PopFront()
 	fmt.Println(l.Front().Value, l.Back().Value)
 
-	l.PrintList()
+	fmt.Println(l.ListToSlice())
+
+	l.PopFront()
+	l.PopFront()
+	l.PopFront()
+	l.PopBack()
+	fmt.Println(l.ListToSlice())
+	l.PopFront()
+
+	l.PushBack(7)
+	l.PushFront(8)
+	fmt.Println(l.ListToSlice())
 
 }
 

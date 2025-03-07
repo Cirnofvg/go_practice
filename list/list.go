@@ -1,7 +1,5 @@
 package list
 
-import "fmt"
-
 type List struct {
 	head, tail *ListNode
 
@@ -112,11 +110,17 @@ func (l *List) PopFront() *ListNode {
 
 	toDelete.next = nil
 
+	l.len--
+
 	return toDelete
 }
 
-func (l *List) PrintList() {
+func (l *List) ListToSlice() []any {
+	res := make([]any, 0, l.len)
+
 	for e := l.head; e != nil; e = e.next {
-		fmt.Println(e.Value)
+		res = append(res, e.Value)
 	}
+
+	return res
 }
